@@ -1,68 +1,19 @@
 @import "Reset.css";
 
 
-body{
-    background-image: url("/img/fundo.png");
+body {
+    /*background-image: url("/img/fundo.png");*/
     background-repeat: no-repeat;
     width: 100%;
     height: 100%;
     background-size: cover;
     text-align: center;
 }
-.titulo{
-    color: white;
-    grid-area: titulo;
-}
 
-label{
-    color: white;
-}
-
-
-.times fieldset{
-    display: grid;
-    align-items: center;
-    margin-top: 200px;
-    grid-template-columns: 50% 50%;
-    grid-template-rows: 45% 45% 10%;
-    grid-template-areas: "time01 time02"
-                        "time03 time04"
-                        "botao botao";
-}
-.times {
-    text-align: center;
-    display: flex;
-    justify-content: space-evenly;
-    align-content: center;
-}
-
-
-.times .time1{
-    grid-area: time01;
-
-}
-.times .time2{
-    grid-area: time02;
-}
-.times .time3{
-    grid-area: time03;
-    margin-top: 40px;
-}
-.times .time4{
-    grid-area: time04;
-    margin-top: 40px;
-}
-button{
-    grid-area: botao;
-    width: 100px;
-    margin-top: 30px;
-    height: 30px;
-}
-.cor{
-    height: 20px;
-    border-radius: 5px;
+label {
+    color: rgb(0, 0, 0);
 }
 
 input{
-    height: 20px;
+    background-color: rgb(136, 41, 41);
 }
