@@ -12,7 +12,7 @@ background: linear-gradient(90deg, rgba(143,142,156,1) 8%, rgba(70,69,51,0) 23%,
 .logo{
     width: 300px;
     height: 300px;
-    padding-top: 100px;
+    padding-top: 50px;
 
 }
 
@@ -24,6 +24,62 @@ h1{
 h2{
     padding-top: 20px;
 }
+
+.jogos{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+}
+label{
+    font-size: clamp(12px, 20px, 30px);
+}
+
+#cor1{
+    width: 40px;
+    height: 30px;
+}
+#cor2{
+    width: 40px;
+    height: 30px;
+}
+#cor3{
+    width: 40px;
+    height: 30px;
+}
+#cor4{
+    width: 40px;
+    height: 30px;
+}
+
+#cadastro{
+    display: flex;
+    flex-direction: column;
+    font-size: clamp(12px, 2vw, 3vw);
+}
+
+label{
+    font-size: clamp(12px, 4vw, 5vw);
+}
+
+#time1{
+    height:clamp(18px, 25px, 50px);
+    font-size:clamp(12px, 14px, 30px);
+}
+#time2{
+    height:clamp(18px, 25px, 50px);
+    font-size:clamp(12px, 14px, 30px);
+}
+#time3{
+    height:clamp(18px, 25px, 50px);
+    font-size:clamp(12px, 14px, 30px);
+}
+#time4{
+    height:clamp(18px, 25px, 50px);
+    font-size:clamp(12px, 14px, 30px);
+}
+
+
 
 
 
