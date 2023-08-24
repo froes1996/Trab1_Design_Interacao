@@ -1,174 +1,92 @@
 // Função para obter um elemento pelo ID
 function getElement(id) {
-    return document.getElementById(id);
+  return document.getElementById(id);
+}
+
+// Função para desabilitar Seções
+function disableSections(element) {
+  element.disabled = true;
+  element.style.display = "none";
+}
+
+
+const times = [];
+for (let i = 1; i <= 4; i++) {
+  times.push(getElement(`time${i}`));
+}
+
+
+// Cores dos times
+const cores = [];
+for (let i = 1; i <= 4; i++) {
+  cores.push(getElement(`cor${i}`));
+}
+
+
+const messageCadastro = getElement("msgcadastro");
+const messageSemi = getElement("msgsemi");
+const messageFinal = getElement("msgfinal");
+const buttonCadastro = getElement("btcadastro");
+const buttonSemi = getElement("btsemi");
+const buttonFinal = getElement("btfinal");
+
+
+
+buttonCadastro.addEventListener("click", function () {
+  const nomes = times.map((time) => time.value);
+
+  if (new Set(nomes).size !== 4) {
+    messageCadastro.innerHTML = "Não pode haver times iguais";
+  } else {
+    const [t1, t2, t3, t4] = nomes;
+
+    Semifinais(t1, t2, t3, t4);
+    //Desabilita a seção de cadastro
+    disableSections(cadastro);
+
   }
-  
-  // Função para desabilitar elementos
-  function disableElements(...elements) {
-    elements.forEach((element) => {
-      element.disabled = true;
-    });
-  }
-  
-  // Função para desabilitar botoes
-  function disableButtons(element) {
-    element.disabled = true;
-    element.style.cursor = "not-allowed";
-  }
+});
+
+function Semifinais(t1, t2, t3, t4) {
+  const semifinais = getElement("semifinais");
 
 
-  const times = [];
-  for (let i = 1; i <= 4; i++) {
-    times.push(getElement(`time${i}`));
-  }
+  const nomesTimes = [
+    getElement("nomeTime1"),
+    getElement("nomeTime2"),
+    getElement("nomeTime3"),
+    getElement("nomeTime4"),
+  ];
 
+  nomesTimes[0].innerHTML = t1;
+  nomesTimes[1].innerHTML = t2;
+  nomesTimes[2].innerHTML = t3;
+  nomesTimes[3].innerHTML = t4;
 
-  // Cores dos times
-  const cores = [];
-  for (let i = 1; i <= 4; i++) {
-    cores.push(getElement(`cor${i}`));
-  }
+  semifinais.style.display = "flex";
 
-
-  const messageCadastro = getElement("msgcadastro");
-  const messageSemi = getElement("msgsemi");
-  const messageFinal = getElement("msgfinal");
-  const buttonCadastro = getElement("btcadastro");
-  const buttonSemi = getElement("btsemi");
-  const buttonFinal = getElement("btfinal");
-
-  buttonCadastro.addEventListener("click", function () {
-    const nomes = times.map((time) => time.value);
-  
-    if (new Set(nomes).size !== 4) {
-      messageCadastro.innerHTML = "Não pode haver times iguais";
-    } else {
-      const [t1, t2, t3, t4] = nomes;
-  
-      Semifinais(
-        t1,
-        t2,
-        t3,
-        t4,
-        cores[0].value,
-        cores[1].value,
-        cores[2].value,
-        cores[3].value
-      );
-  
-      disableElements(...times, ...cores);
-      disableButtons(buttonCadastro);
-    }
+  buttonSemi.addEventListener("click", function () {
+    ResultadoSemi(colorT1, colorT2, colorT3, colorT4, buttonSemi);
   });
+}
 
-  function Semifinais(
-    t1,
-    t2,
-    t3,
-    t4,
-    colorTime1,
-    colorTime2,
-    colorTime3,
-    colorTime4
-  ) {
-    const semifinais = getElement("semifinais");
-  
-    const nomesTimes = [
-      getElement("nomeTime1"),
-      getElement("nomeTime2"),
-      getElement("nomeTime3"),
-      getElement("nomeTime4"),
-    ];
-  
-    nomesTimes[0].innerHTML = t1;
-    nomesTimes[1].innerHTML = t2;
-    nomesTimes[2].innerHTML = t3;
-    nomesTimes[3].innerHTML = t4;
-  
-    semifinais.style.display = "flex";
-  
-    buttonSemi.addEventListener("click", function () {
-      ResultadoSemi(colorTime1, colorTime2, colorTime3, colorTime4, buttonSemi);
-    });
-  }
+function ResultadoSemi(colorT1, colorT2, colorT3, colorT4) {
+  let golsTimes = [
+    getElement("gols1"),
+    getElement("gols2"),
+    getElement("gols2"),
+    getElement("gols4"),
+  ];
+  let semi1 = getElement("semi1");
+  let semi2 = getElement("semi2");
 
-  // Resultados das semifinais
-  function ResultadoSemi(colorTime1, colorTime2, colorTime3, colorTime4) {
-    let golsTimes = [
-      getElement("gols1"),
-      getElement("gols2"),
-      getElement("gols3"),
-      getElement("gols4"),
-    ];
+  let [golsT1, golsT2, golsT3, golsT4] = golsTimes;
   
-    let jogo1 = getElement("semi1");
-    let jogo2 = getElement("semi2");
-  
-    let [golsT1, golsT2, golsT3, golsT4] = golsTimes;
-  
-    if (golsT1.value === golsT2.value || golsT3.value === golsT4.value) {
-      messageSemi.innerHTML = "Não pode haver empate (adicione os pênaltis)";
-      return;
-    }
-  
-    setBorderStyle(jogo1, golsT1.value, golsT2.value, colorTime1, colorTime2);
-    setBorderStyle(jogo2, golsT3.value, golsT4.value, colorTime3, colorTime4);
-  
-    final.style.display = "flex";
-  
-    Finais(
-      golsT1.value > golsT2.value ? times[0].value : times[1].value,
-      golsT3.value > golsT4.value ? times[2].value : times[3].value,
-      golsT1.value > golsT2.value ? colorTime1 : colorTime2,
-      golsT3.value > golsT4.value ? colorTime3 : colorTime4
-    );
-  
-    disableElements(golsT1, golsT2, golsT3, golsT4);
-    disableButtons(buttonSemi);
+  if (golsT1.value === golsT2.value || golsT3.value === golsT4.value) {
+    messageSemi.innerHTML = "Não pode haver empate (adicione os pênaltis)";
+    return;
   }
   
-  function Finais(timeChave1, timeChave2, colorTime1, colorTime2) {
-    const golsT1 = getElement("golstime1Final");
-    const golsT2 = getElement("golstime2Final");
-  
-    const time1Final = getElement("time1final");
-    const time2Final = getElement("time2final");
-  
-    time1Final.innerHTML = timeChave1;
-    time2Final.innerHTML = timeChave2;
-  
-    const final = getElement("final");
-    final.style.display = "flex";
-  
-    const buttonFinal = getElement("btfinal");
-    buttonFinal.addEventListener("click", function () {
-      ResultadoFinal(golsT1, golsT2, colorTime1, colorTime2);
-    });
-  }
-  
-  function ResultadoFinal(golsT1, golsT2, colorTime1, colorTime2) {
-    const jogoFinal = getElement("final1");
-  
-    if (golsT1.value === golsT2.value) {
-      messageFinal.innerHTML = "Não pode haver empate (adicione os pênaltis)";
-      return;
-    } else {
-      setBorderStyle(
-        jogoFinal,
-        golsT1.value,
-        golsT2.value,
-        colorTime1,
-        colorTime2
-      );
-  
-      getElement("campeao").innerHTML = `Vencedor ${
-        golsT1.value > golsT2.value ? time1Final.innerHTML : time2Final.innerHTML
-      }`;
-      getElement("campeao").style.color = `${
-        golsT1.value > golsT2.value ? colorTime1 : colorTime2
-      }`;
-  
-      disableElements(golsT1, golsT2);
-      disableButtons(buttonFinal);
-    }
-  }
+}
+
+

@@ -2,20 +2,6 @@
 function getElement(id) {
     return document.getElementById(id);
   }
-  
-  // Função para desabilitar elementos
-  function disableElements(...elements) {
-    elements.forEach((element) => {
-      element.disabled = true;
-    });
-  }
-  
-  // Função para desabilitar botoes
-  function disableButtons(element) {
-    element.disabled = true;
-    element.style.cursor = "not-allowed";
-  }
-  
   // Nomes dos times
   const times = [];
   for (let i = 1; i <= 4; i++) {
@@ -27,6 +13,8 @@ function getElement(id) {
   for (let i = 1; i <= 4; i++) {
     cores.push(getElement(`colorTime${i}`));
   }
+
+
   
   const messageCadastro = getElement("messageCadastro");
   const messageSemi = getElement("messageSemi");
