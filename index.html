@@ -1,100 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <LINK rel="stylesheet" href="Style/Style.css">
+    <title>Trabalho</title>
 </head>
-
 <body>
-    <img class="logo" src="img/logo.avif" alt="Logo">
-    <section id="cadastro">
-        <h1 id="titulo">Informe os Times</h1>
-        <p id="msgcadastro"></p>
-        <section id="jogos">
-            <div class="time01">
-                <label for="time1">Time 1:</label>
-                <input type="text" name="time1" id="time1" required>
-
-                <label for="time1">Cor 1:</label>
-                <input type="color" name="cor1" id="cor1" required>
-            </div>
-
-            <div class="time02">
-                <label for="time2">Time 2:</label>
-                <input type="text" name="time2" id="time2" required>
-
-                <label for="time2">Cor 2:</label>
-                <input type="color" name="cor2" id="cor2" required>
-            </div>
-
-            <div class="time03">
-                <label for="time3">Time 3:</label>
-                <input type="text" name="time3" id="time3" required>
-
-                <label for="time3">Cor 3:</label>
-                <input type="color" name="cor3" id="cor3" required>
-            </div>
-
-            <div class="time04">
-                <label for="time4">Time 4:</label>
-                <input type="text" name="time4" id="time4" required>
-
-                <label for="time4">Cor 4:</label>
-                <input type="color" name="cor4" id="cor4" required>
-            </div>
-            <section>
-                <button id="btcadastro">Enviar</button>
-            </section>
-        </section>
-    </section>
-    <section id="semifinais">
-        <h1>Semifinais</h1>
-        <p id="msgsemi"></p>
-        <section class="jogos">
-        <div id="semi1">
-            <h5 id="nomeTime1"></h5> 
-            <input type="number" name="gols1" id="gols1" required>
-
-            <h5 id="nomeTime2"></h5>
-            <input type="number" name="gols2" id="gols2" required>
+    <section id="formulario">
+        <div class="corFundo">
+            <label for="cor">Escolha da cor de fundo</label>
+            <input type="color" name="fundo" id="fundo" required>
+            <button id="Btcor">Enviar</button>
         </div>
 
-        <div id="semi2">
-            <h5 id="nomeTime3"></h5>
-            <input type="number" name="gols3" id="gols3" required>
+        <div class="borda">
+            <label for="borda">Escolha a borda</label>
+            <input type="text" name="borda" id="borda" required>
+            <button id="Btborda">Enviar</button>
+        </div>
 
-            <h5 id="nomeTime4"></h5>
-            <input type="number" name="gols4" id="gols4" required>
+        <div class="conteudo">
+            <label for="conteudo">Escolha o conteudo</label>
+            <input type="text" name="conteudo" id="conteudo" required>
+            <button id="Btconteudo">Enviar</button>
         </div>
-    </section>
-    <section>
-        <button id="btsemi">Enviar</button>
-    </section>
-    </section>
-    <section id="final">
-            <h1>Final</h1>
-            <p id="msgfinal"></p>
-            <section class="jogos">
-                <div id="jogofinal">
-                    <div class="time1final"></div>
-            <h5 id="time1Final"></h5>
-            <input type="number" name="gols1" id="golstime1" required>
+
+        <div class="imagem">
+            <label for="imagem">Escolha uma imagem</label>
+            <input type="file" name="imagem" id="imagem" required>
+            <button id="Btimg">Enviar</button>
         </div>
-        <div class="time2final">
-            <h5 id="time2Final"></h5>
-            <input type="number" name="gols2" id="golstime2" required>
-        </div>
-    </div>
-        <button id="btfinal">Enviar</button>
+       
     </section>
-</section>
-    <h1 id="campeao"></h1>
     <script src="script.js"></script>
-
-
 </body>
-
 </html>
