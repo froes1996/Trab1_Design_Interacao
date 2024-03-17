@@ -1,37 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/Style/Style.css" />
     <title>Trabalho</title>
 </head>
+
 <body>
-    <section id="formulario">
-        <div class="corFundo">
-            <label for="cor">Escolha da cor de fundo</label>
-            <input type="color" name="fundo" id="fundo" required>
-            <button id="Btcor">Enviar</button>
-        </div>
+    <form id="formulario">
+        <label for="cor">Escolha da cor de fundo</label>
+        <input type="color" name="fundo" id="corFundo" required><br>
 
-        <div class="borda">
-            <label for="borda">Escolha a borda</label>
-            <input type="text" name="borda" id="borda" required>
-            <button id="Btborda">Enviar</button>
-        </div>
+        <label for="borda">Estilo da Borda:</label>
+        <select id="borda" name="borda">
+            <option value="none">Sem borda</option>
+            <option value="solid">Borda Sólida</option>
+            <option value="dashed">Borda Tracejada</option>
+            <option value="dotted">Borda Pontilhada</option>
+        </select><br>
 
-        <div class="conteudo">
-            <label for="conteudo">Escolha o conteudo</label>
-            <input type="text" name="conteudo" id="conteudo" required>
-            <button id="Btconteudo">Enviar</button>
-        </div>
+        <label for="corTexto">Cor do texto</label>
+        <input type="color" name="corTexto" id="corTexto" required><br>
 
-        <div class="imagem">
-            <label for="imagem">Escolha uma imagem</label>
-            <input type="file" name="imagem" id="imagem" required>
-            <button id="Btimg">Enviar</button>
-        </div>
-       
-    </section>
+        <label for="conteudo">Escolha o conteudo</label>
+        <input type="text" name="conteudo" id="texto" required><br>
+
+        <label for="imagem">Selecione uma imagem:</label>
+        <select id="imagem" name="imagem">
+            <option value="img/Masha.jpg">Masha e o Urso</option>
+            <option value="img/Chapeuzinho.jpg">Chapeuzinho Vermelho</option>
+            <option value="img/LucasNeto.jpg">Lucas Neto</option>
+        </select><br>
+
+        <button type="button" onclick="atualizarCartao()">Atualizar Cartão</button>
+    </form>
+
+    <div id="cartao" class="cartao">
+        <p id="textoCartao">Texto</p>
+    </div>
+
     <script src="script.js"></script>
 </body>
+
 </html>
