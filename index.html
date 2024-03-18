@@ -10,34 +10,53 @@
 
 <body>
     <form id="formulario">
-        <label for="cor">Escolha da cor de fundo</label>
-        <input type="color" name="fundo" id="corFundo" required><br>
-
-        <label for="borda">Estilo da Borda:</label>
-        <select id="borda" name="borda">
-            <option value="none">Sem borda</option>
-            <option value="solid">Borda Sólida</option>
-            <option value="dashed">Borda Tracejada</option>
-            <option value="dotted">Borda Pontilhada</option>
-        </select><br>
-
-        <label for="corTexto">Cor do texto</label>
-        <input type="color" name="corTexto" id="corTexto" required><br>
-
-        <label for="conteudo">Escolha o conteudo</label>
-        <input type="text" name="conteudo" id="texto" required><br>
-
+        <h1>Personalize aqui seu convite de aniversário</h1>
+        <div class="title">
+            <label for="titulo">Escolha o Titulo</label>
+            <input type="text" name="conteudo" id="titulo" required><br>
+        </div>
+        <div class="corDeFundo">
+            <label for="cor">Escolha da cor de fundo</label>
+            <input type="color" name="fundo" id="corFundo" required><br>
+        </div>
+        <div class="border">
+            <label for="borda">Estilo da Borda:</label>
+            <select id="borda" name="borda">
+                <option value="none">Sem borda</option>
+                <option value="solid">Borda Sólida</option>
+                <option value="dashed">Borda Tracejada</option>
+                <option value="dotted">Borda Pontilhada</option>
+            </select><br>
+        </div>
+        <div class="corDoTexto">
+            <label for="corTexto">Cor do texto</label>
+            <input type="color" name="corTexto" id="corTexto" required><br>
+        </div>
+        <div class="conteudo">
+            <label for="conteudo">Escolha o conteudo</label>
+            <input type="text" name="conteudo" id="texto" required><br>
+        </div>
+        <div class="endereco1">
+            <label for="endereco">Informe o endereço</label>
+            <input type="text" name="endereco" id="endereco" required><br>
+        </div>
+        
+        <!--
+        <div class="imagemFundo"></div>
         <label for="imagem">Selecione uma imagem:</label>
         <select id="imagem" name="imagem">
             <option value="img/Masha.jpg">Masha e o Urso</option>
             <option value="img/Chapeuzinho.jpg">Chapeuzinho Vermelho</option>
             <option value="img/LucasNeto.jpg">Lucas Neto</option>
         </select><br>
-
+        </div>
+        -->
         <button type="button" onclick="atualizarCartao()">Atualizar Cartão</button>
     </form>
 
     <div id="cartao" class="cartao">
+        <p id="tituloCartao">Titulo Cartão</p>
+        <p id="enderecoCartao">Endereço</p> 
         <p id="textoCartao">Texto</p>
     </div>
 

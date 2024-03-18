@@ -1,31 +1,114 @@
 @import "Reset.css";
 
+
+body{
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 1000px;
+}
+
+
+
 .cartao {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto auto auto;
+    grid-template-areas: "p1"
+                          "cont"
+                          "end";
     width: 100%;
     height: 500px;
     border: 10px solid black;
     padding: 20px;
     text-align: center;
-    margin-top: 20px;
+    margin-top: 50px;
     background-repeat: no-repeat;
+    background-image: url('/img/fundo.avif');
+    background-size: cover;
+    background-position: center;
+  }
+  #tituloCartao{
+    grid-area: p1;
+    font-size: 30px;
+  }
+  #textoCartao{
+    grid-area: cont;
   }
   
   #textoCartao {
     font-size: 20px;
   }
 
-  .imagem{
-    width: 100%;
-    height: 100%;
-  }
 
+h1{
+  font-size: 28px;
+  grid-area: h1;
+  text-align: center;
+}
 
   #formulario{
+    margin-top: 50px;
+    font-size: 20px;
+    align-items: center;
     display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: auto auto ;
+    grid-template-rows: auto auto auto auto;
+    grid-template-areas: "h1 h1"
+                          "titulo borda "
+                          " cortexto  conteudo"
+                          "corfundo corfundo";
     border: 2px solid black;
     border-radius: 3px;
-    height: 300px;
-    
+    height: 500px;
+    background-color: rgb(204, 218, 231);
   }
+
+  @media(max-width:768px){
+    #formulario{
+      font-size: 18px;
+      grid-template-columns: 100%;
+      grid-template-rows: auto ;
+      grid-template-areas:"h1"
+                          "titulo"
+                          "corfundo"
+                          "borda"
+                          "cortexto"
+                          "conteudo"
+                          "btn";
+    }
+    button{
+      grid-area: btn;
+    }
+    h1{
+      font-size: 20px;
+    }
+  }
+
+  .corDeFundo{
+    grid-area: corfundo;
+  }
+
+  .border{
+    grid-area: borda;
+  }
+
+  .corDoTexto{
+    grid-area: cortexto;
+  }
+
+  .conteudo{
+    grid-area: conteudo;
+  }
+
+  input{
+    border: 2px solid black;
+    border-radius: 5px;
+  }
+ button{
+    height: 30px;
+    width: 70px;
+  }
+
+
+
 
