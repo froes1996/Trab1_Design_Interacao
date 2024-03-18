@@ -15,9 +15,6 @@
             <label for="titulo">Escolha o Titulo</label>
             <input type="text" name="conteudo" id="titulo" required><br>
         </div>
-        <div class="corDeFundo">
-            <label for="cor">Escolha da cor de fundo</label>
-            <input type="color" name="fundo" id="corFundo" required><br>
         </div>
         <div class="border">
             <label for="borda">Estilo da Borda:</label>
@@ -40,9 +37,29 @@
             <label for="endereco">Informe o endereço</label>
             <input type="text" name="endereco" id="endereco" required><br>
         </div>
+        <input type="file" id="image-input" accept="image/*">
         
-        <!--
-        <div class="imagemFundo"></div>
+  
+        <button type="button" onclick="atualizarCartao()">Atualizar Cartão</button>
+    </form>
+
+    <div id="cartao" class="cartao">
+        <p id="tituloCartao">Titulo Cartão</p>
+        <p id="enderecoCartao">Endereço</p> 
+        <p id="textoCartao">Texto</p>
+        <div id="image-preview"></div>
+        
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
+
+
+
+
+      <!--
+            <div class="imagemFundo"></div>
         <label for="imagem">Selecione uma imagem:</label>
         <select id="imagem" name="imagem">
             <option value="img/Masha.jpg">Masha e o Urso</option>
@@ -51,16 +68,3 @@
         </select><br>
         </div>
         -->
-        <button type="button" onclick="atualizarCartao()">Atualizar Cartão</button>
-    </form>
-
-    <div id="cartao" class="cartao">
-        <p id="tituloCartao">Titulo Cartão</p>
-        <p id="enderecoCartao">Endereço</p> 
-        <p id="textoCartao">Texto</p>
-        <div id="img3">foto</div>
-    </div>
-    <script src="script.js"></script>
-</body>
-
-</html>
